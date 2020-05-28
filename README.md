@@ -1,0 +1,2 @@
+# Travel_Maven_Git
+使用maven与mybatis搭建的旅游网站
