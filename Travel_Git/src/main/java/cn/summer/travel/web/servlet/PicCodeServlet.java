@@ -13,12 +13,17 @@ import java.util.Random;
 
 /**
  * 创建一个验证码图片
+ * @author
  */
 @WebServlet("/code")
 public class PicCodeServlet extends HttpServlet {
-    private Random ran = new Random();      //随机类
 
-    //1) 写一个方法随机获取颜色
+    private Random ran = new Random();
+
+    /**
+     * 写一个方法随机获取颜色
+     * @return
+     */
     private Color getColor() {
         //红，绿，蓝取值0-255，随机生成 0-255之间数
         int r = ran.nextInt(256);
@@ -27,6 +32,7 @@ public class PicCodeServlet extends HttpServlet {
         return new Color(r, g, b);
     }
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //2) 创建缓存图片：指定宽
         int width = 90, height = 30;
@@ -71,6 +77,7 @@ public class PicCodeServlet extends HttpServlet {
         ImageIO.write(image, "jpeg", response.getOutputStream());
     }
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         this.doPost(request, response);
     }
