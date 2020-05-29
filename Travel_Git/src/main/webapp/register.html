@@ -136,8 +136,11 @@
 
         checkUserName();
         checkPassword();
+        checkEamil();
+        checkName();
     });
-//用户名验证
+
+    //用户名验证
     function checkUserName() {
         $("#username").blur(function () {
             //获取用户名 去除空格
@@ -154,19 +157,57 @@
             $("#msg").html("");
         })
     }
+
     // 密码验证
     function checkPassword() {
         $("#password").blur(function () {
-            //获取用户名 去除空格
+            //获取密码 去除空格
             let password = $("#password").val().trim();
-            let reg=/^[a-zA-Z0-9]{4,10}$/;
-            if(reg.test(password)==false){
+            let reg = /^[a-zA-Z0-9]{4,10}$/;
+            if (reg.test(password) == false) {
                 $("#msg").html("密码不能含有非法字符，长度在4-10之间");
                 return false;
             }
             return true;
         });
         $("#password").focus(function () {
+            //取消错误信息显示
+            $("#msg").html("");
+        })
+    }
+
+    // 邮箱验证
+    function checkEamil() {
+        $("#email").blur(function () {
+            //获取邮箱 去除空格
+            let email = $("#email").val().trim();
+            let reg = /^\w+@\w+(\.[a-zA-Z]{2,3}){1,2}$/;
+            if (reg.test(email) == false) {
+                $("#msg").html("Email格式不正确");
+                return false;
+            }
+            return true;
+        });
+        $("#email").focus(function () {
+            //取消错误信息显示
+            $("#msg").html("");
+        })
+    }
+
+    // 姓名验证
+    function checkName() {
+        $("#name").blur(function () {
+            let val = $("#name").val();
+            if (val != "") {
+                $("#msg").text("");
+                return true;
+            } else {
+                //姓名为空
+                $("#msg").text("请输入用户名");
+                return false;
+            }
+        });
+        $("#name").focus(function () {
             //取消错误信息显示
             $("#msg").html("");
         })
