@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/register.css">
     <!--导入jquery-->
     <script src="js/jquery-3.3.1.js"></script>
+    <!--<script src="js/bootstrap.js"></script>-->
 </head>
 <body>
 <!--引入头部-->
@@ -63,6 +64,19 @@
                         <td class="td_right">
                             <input type="text" id="telephone" name="telephone" placeholder="请输入您的手机号">
                         </td>
+                    </tr>
+
+                    <!--加入手机验证码-->
+                    <tr>
+                        <td class="td_left">
+                            <label for="telephone">手机验证码</label>
+                        </td>
+                        <td class="td_right">
+                            <input type="text" id="telCheckCode" name="telCheckCode" placeholder="请输入手机验证码"
+                                   style="width: 175px;float: left;margin-left: 35px">
+                            <input id="sendTelCode" type="button" value="发送验证码" >
+                        </td>
+
                     </tr>
                     <tr>
                         <td class="td_left">
