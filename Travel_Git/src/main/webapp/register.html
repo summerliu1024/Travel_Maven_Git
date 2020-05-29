@@ -135,7 +135,7 @@
         });
 
         checkUserName();
-        checkUserName();
+        checkPassword();
     });
 //用户名验证
     function checkUserName() {
@@ -155,7 +155,7 @@
         })
     }
     // 密码验证
-    function checkUserName() {
+    function checkPassword() {
         $("#password").blur(function () {
             //获取用户名 去除空格
             let password = $("#password").val().trim();
